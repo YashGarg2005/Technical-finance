@@ -1,0 +1,87 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial and Stock Data Analyzer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Financial and Stock Data Analyzer</h1>
+        
+        <!-- Financial Ratio Analyzer Section -->
+        <section>
+            <h2>Financial Ratio Analyzer</h2>
+            <form id="financial-form">
+                <h3>Manual Input</h3>
+                <label for="currentAssets">Current Assets:</label>
+                <input type="number" id="currentAssets" name="currentAssets" required><br>
+                <label for="currentLiabilities">Current Liabilities:</label>
+                <input type="number" id="currentLiabilities" name="currentLiabilities" required><br>
+                <label for="totalAssets">Total Assets:</label>
+                <input type="number" id="totalAssets" name="totalAssets" required><br>
+                <label for="totalLiabilities">Total Liabilities:</label>
+                <input type="number" id="totalLiabilities" name="totalLiabilities" required><br>
+                <label for="totalEquity">Total Equity:</label>
+                <input type="number" id="totalEquity" name="totalEquity" required><br>
+                <label for="netIncome">Net Income:</label>
+                <input type="number" id="netIncome" name="netIncome" required><br>
+                <label for="inventory">Inventory:</label>
+                <input type="number" id="inventory" name="inventory" required><br>
+                <button type="submit">Calculate Ratios</button>
+            </form>
+    
+            <h3>Calculated Ratios</h3>
+            <div id="results">
+                <canvas id="pieChart" width="400" height="400"></canvas>
+            </div>
+        </section>
+
+         <!-- Investment Calculator Section -->
+         <section>
+            <h2>Investment Calculator</h2>
+            <form id="investment-form">
+                <label for="investmentAmount">Investment Amount:</label>
+                <input type="number" id="investmentAmount" name="investmentAmountCalculator" required><br>
+                <label for="interestRate">Annual Interest Rate (%):</label>
+                <input type="number" id="interestRate" name="interestRate" required><br>
+                <label for="years">Number of Years:</label>
+                <input type="number" id="years" name="years" required><br>
+                <label for="cashInflow">Constant Cash Inflow:</label>
+                <input type="number" id="cashInflow" name="cashInflow" required><br>
+                <button type="button" onclick="calculateValues()">Calculate</button>
+            </form>
+
+            <h3>Investment Results</h3>
+            <div id="investment-results"></div>
+
+            <canvas id="pieChart" width="400" height="200"></canvas>
+        </section>
+
+        
+        
+        <!-- Stock Data Analyzer Section -->
+        <section>
+            <h2>Stock Data Analyzer</h2>
+            <form id="data-form">
+                <label for="dataInput">Enter Stock Prices (comma-separated values):</label>
+                <textarea id="dataInput" name="dataInput" rows="4" cols="50" required></textarea><br>
+                <button type="button" onclick="analyzeStockData()">Analyze Data</button>
+            </form>
+            
+            <h3>Data Analysis Results</h3>
+            <div id="statistics"></div>
+
+            <h3>Data Visualization</h3>
+            <canvas id="lineChart" width="400" height="200"></canvas>
+            <canvas id="histogramChart" width="400" height="200"></canvas>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

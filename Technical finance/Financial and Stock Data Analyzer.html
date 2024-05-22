@@ -1,0 +1,152 @@
+
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>HTML
+
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial and Stock Data Analyzer</title>
+    <link rel="stylesheet" href="./Financial and Stock Data Analyzer_files/styles.css">
+    <!-- Include Chart.js library -->
+    <script src="./Financial and Stock Data Analyzer_files/chart.js"></script>
+
+
+    <div class="container">
+        <h1>Financial and Stock Data Analyzer</h1>
+        
+        <!-- Financial Ratio Analyzer Section -->
+        <section>
+            <h2>Financial Ratio Analyzer</h2>
+            <form id="financial-form">
+                <h3>Manual Input</h3>
+                <label for="currentAssets">Current Assets:</label>
+                <input type="number" id="currentAssets" name="currentAssets" required=""><br>
+                <label for="currentLiabilities">Current Liabilities:</label>
+                <input type="number" id="currentLiabilities" name="currentLiabilities" required=""><br>
+                <label for="totalAssets">Total Assets:</label>
+                <input type="number" id="totalAssets" name="totalAssets" required=""><br>
+                <label for="totalLiabilities">Total Liabilities:</label>
+                <input type="number" id="totalLiabilities" name="totalLiabilities" required=""><br>
+                <label for="totalEquity">Total Equity:</label>
+                <input type="number" id="totalEquity" name="totalEquity" required=""><br>
+                <label for="netIncome">Net Income:</label>
+                <input type="number" id="netIncome" name="netIncome" required=""><br>
+                <label for="inventory">Inventory:</label>
+                <input type="number" id="inventory" name="inventory" required=""><br>
+                <button type="submit">Calculate Ratios</button>
+            </form>
+    
+            <h3>Calculated Ratios</h3>
+            <div id="results">
+        <p>Current Ratio: 0.01</p>
+        <p>Quick Ratio: 0.00</p>
+        <p>Debt-to-Equity Ratio: 0.97</p>
+        <p>Return on Equity (ROE): 1.00</p>
+        <canvas id="pieChart" width="800" height="800" style="display: block; box-sizing: border-box; height: 400px; width: 400px;"></canvas>
+        <p>Company Health: The company has liquidity or leverage issues, indicating a risky financial position.</p>
+    </div>
+        </section>
+
+         <!-- Investment Calculator Section -->
+         <section>
+            <h2>Investment Calculator</h2>
+            <form id="investment-form">
+                <label for="investmentAmount">Investment Amount:</label>
+                <input type="number" id="investmentAmount" name="investmentAmountCalculator" required=""><br>
+                <label for="interestRate">Annual Interest Rate (%):</label>
+                <input type="number" id="interestRate" name="interestRate" required=""><br>
+                <label for="years">Number of Years:</label>
+                <input type="number" id="years" name="years" required=""><br>
+                <label for="cashInflow">Constant Cash Inflow:</label>
+                <input type="number" id="cashInflow" name="cashInflow" required=""><br>
+                <button type="button" onclick="calculateValues()">Calculate</button>
+            </form>
+
+            <h3>Investment Results</h3>
+            <div id="investment-results">
+        <p>Future Value: 746174811140.68</p>
+        <p>Net Present Value: 16420.00</p>
+        <p>Final Payoff Value: 2451930429391835.00</p>
+        <p>Present Value: 0.00</p>
+    </div>
+
+            <canvas id="pieChart" width="400" height="200"></canvas>
+        </section>
+
+        
+        
+        <!-- Stock Data Analyzer Section -->
+        <section>
+            <h2>Stock Data Analyzer</h2>
+            <form id="data-form">
+                <label for="dataInput">Enter Stock Prices (comma-separated values):</label>
+                <textarea id="dataInput" name="dataInput" rows="4" cols="50" required=""></textarea><br>
+                <button type="button" onclick="analyzeStockData()">Analyze Data</button>
+            </form>
+            
+            <h3>Data Analysis Results</h3>
+            <div id="statistics">
+        <p>Mean: 35790.22</p>
+        <p>Median: 28.50</p>
+        <p>Mode: 5</p>
+        <p>Standard Deviation: 269616.70</p>
+        <p>Variance: 72693162531.88</p>
+        <p>Min: 1.00</p>
+        <p>Max: 2345643.00</p>
+        <p>Range: 2345642.00</p>
+        <p>Q1: 5.00</p>
+        <p>Q2 (Median): 28.50</p>
+        <p>Q3: 324.00</p>
+        <p>Volatility: 57.96</p>
+        <p>5-Day Moving Average: 11.40, 23.80, 23.80, 23.60, 15.20, 21.00, 9.00, 19.20, 19.80, 23.80, 17.80, 17.80, 8.20, 14.00, 10.40, 16.20, 16.60, 80.40, 74.20, 74.20, 136.60, 146.20, 82.40, 86.40, 86.40, 24.00, 14.40, 886.20, 994.20, 994.20, 992.00, 1001.80, 129.60, 123.80, 1169.60, 1212.00, 1202.00, 1202.40, 1096.20, 60.00, 14.00, 20.00, 20.00, 84.40, 78.40, 78.40, 78.60, 86.20, 34.20, 30.40, 156.20, 253.80, 246.20, 469361.80, 469362.20, 470148.00, 470133.80, 470139.80, 1080.40, 1086.00, 174.60, 88.80, 92.60, 150.20, 272.00, 272.00, 274.20, 389.80, 1550.20, 1490.20, 1490.20, 70730.40</p>
+    </div>
+
+            <h3>Data Visualization</h3>
+            <canvas id="lineChart" width="1600" height="800" style="display: block; box-sizing: border-box; height: 400px; width: 800px;"></canvas>
+            <canvas id="histogramChart" width="1600" height="800" style="display: block; box-sizing: border-box; height: 400px; width: 800px;"></canvas>
+        </section>
+    </div>
+
+    <script src="./Financial and Stock Data Analyzer_files/script.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
